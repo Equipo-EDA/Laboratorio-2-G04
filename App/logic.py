@@ -86,7 +86,7 @@ def load_tags(catalog, filename):
     for tag in input_file:
         set.add_element(catalog["tags"], tag)
     return tag_size(catalog)
-    #REVISAR
+    
 
 
 def load_books_tags(catalog, filename):
