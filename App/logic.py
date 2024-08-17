@@ -84,12 +84,11 @@ def load_books_tags(catalog, filename):
     """
     Carga los tags de los libros del archivo
     """
-    booktagefile = os.path.join(data_dir, filename)
-    input_file = csv.DictReader(open(booktagefile, encoding= "utf_8"))
-    catalog = create_book_tag_list(catalog)
-    for booktag in input_file:
-        add_book_tag(catalog, booktag)
-    return book_tag_size(catalog)
+    # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
+    catalog = control["model"]
+    booksfile = os.path.join(cf.data_dir, filename)
+    catalog = model.addBookTags(catalog, booksfile)
+    return model.bookTagSize(catalog)
 
 
 def first_book(catalog):
@@ -113,9 +112,8 @@ def add_book_tags_file(catalog, booktagsfile):
     Esta funcion agrega elemento a lista de bookstags
     """
     # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    set.add_element(catalog["book_tags"], booktag)
+    catalog["book_tags"] = set.new_set()
     return catalog
-
 
 
 def create_book_tag_list(catalog):
@@ -123,7 +121,8 @@ def create_book_tag_list(catalog):
     Esta funcion crea una lista vacia para booktags.
     """
     # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    pass
+    catalog["book_tags"] = set.new_set()
+    return catalog
 
 
 def add_book_tag(catalog, booktag):
@@ -131,7 +130,8 @@ def add_book_tag(catalog, booktag):
     Esta funcion agrega un elemento a lista de booktags.
     """
     # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    pass
+    set.add_element(catalog["book_tags"], booktag)
+    return catalog
 
 
 # Funciones de consulta
