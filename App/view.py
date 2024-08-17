@@ -78,7 +78,9 @@ def load_books_tags(control):
     Cargar los Tags de libros
     """
     # TODO: Mods de Est-1 en el Lab 2
-    pass
+    booktags = logic.load_books_tags(control,
+                                        "GoodReads/book_tags-small.csv")
+    return booktags
 
 
 def first_book(control):
@@ -86,7 +88,9 @@ def first_book(control):
     Devuelve el primer libro del catalogo
     """
     # TODO: Mods de Est-1 en el Lab 2
-    pass
+    first = logic.first_book(control)
+    return first
+
 
 
 def last_book(control):
@@ -118,7 +122,8 @@ def main():
             print("Total de libros cargados: " + str(books) + "\n")
 
             # TODO: Mods de Est-1 en el Lab 2
-            first = None
+            first = first_book(control)
+            print("Primer libro cargado:\n" + str(first) + "\n")
 
             # TODO: Mods de Est-2 en el Lab 2
             
@@ -134,9 +139,9 @@ def main():
             print("Total de tags cargados: " + str(tags) + "\n")
 
         elif int(inputs[0]) == 3:
-            # TODO: Mods de Est-3 en el Lab 2
-            pass
-
+            print("Cargando información de book-tags...")
+            booktags = load_books_tags(control)
+            print("Total de book-tags cargados: "+ str(booktags))
         elif int(inputs[0]) == 0:
             working = False
             print("\nGracias por utilizar el programa.")

@@ -108,22 +108,21 @@ def first_book(catalog):
     """
     Devuelve el primer libro del catalogo
     """
-    # TODO: Mods Est-3 en el Lab 2
-    pass
+    return set.get_first_element(catalog["books"])
 
 
 def last_book(catalog):
     """
     Devuelve el ultimo libro del catalogo
     """
-    # TODO: Mods Est-3 en el Lab 2
+    return set.get_last_element(catalog["books"])
     pass
 
 # Funciones para la manipulacion de los datos 
 
 def add_book_tags_file(catalog, booktagsfile):
     """
-    Esta funcion guardar los booktags provenientes del archivo CSV.
+    Esta funcion agrega elemento a lista de bookstags
     """
     # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
     bt = set.load_set(set.new_set(), booktagsfile)
@@ -136,7 +135,8 @@ def create_book_tag_list(catalog):
     Esta funcion crea una lista vacia para booktags.
     """
     # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    pass
+    catalog["book_tags"] = set.new_set()
+    return catalog
 
 
 def add_book_tag(catalog, booktag):
@@ -144,21 +144,22 @@ def add_book_tag(catalog, booktag):
     Esta funcion agrega un elemento a lista de booktags.
     """
     # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    pass
+    set.add_element(catalog["book_tags"], booktag)
+    return catalog
 
 
 # Funciones de consulta
 
 def book_size(catalog):
     # TODO: Mods de Est-3 en el Lab 2
-    pass
+    return set.size(catalog["books"])
 
 
 def tag_size(catalog):
     # TODO: Mods de Est-3 en el Lab 2
-    pass
+    return set.size(catalog["tags"])
 
 
 def book_tag_size(catalog):
     # TODO: Mods de Est-3 en el Lab 2
-    pass
+    return set.size(catalog["books_tags"])
